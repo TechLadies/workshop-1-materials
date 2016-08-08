@@ -1,0 +1,1 @@
+puts("Good afternoon, Singapore!")
