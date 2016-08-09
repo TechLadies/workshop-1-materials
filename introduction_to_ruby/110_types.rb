@@ -8,6 +8,10 @@
 # information. In this case the variable "name" stores a value "Grzegorz" (which
 # is of string type). Variables can later change values they store.
 #
+# Names of variables in Ruby start with small letter (their names can
+# consist of small letters, numbers, underscore character (_) and a few more
+# characters (e.g. they can end with ? and !)
+#
 
 
 name = "Grzegorz"
