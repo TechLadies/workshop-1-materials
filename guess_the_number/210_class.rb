@@ -1,3 +1,24 @@
+#
+# Until now, the game was played only once. To play it again, user needs to
+# run the program again. We want to change it, so that user can play as many
+# time as she wants without restarting the program. The first step we do is to
+# create a new class that will represent a game.
+#
+# This class has one function, called "run". What we basically do is to move all
+# the code we've written so far to that function, and after finishing a class,
+# we create a new game and then we run it.
+#
+# Please notice difference between game and Game - the first one is a name of
+# a variable (starts with small letter), the other one is a name of a class
+# (starts with capital letter). So game variable is an instance of Game class.
+#
+# When we create a variable of a Game type, we can later call a function on this
+# variable. Game class has just one function that runs the game.
+#
+# During workshop the last 2 lines were kept as one instead: Game.new.run - both
+# versions are correct, I decided to change it here to make it more clear
+#
+
 class Game
   def run
     secret = rand(101)
@@ -24,4 +45,5 @@ class Game
   end
 end
 
-Game.new.run
+game = Game.new
+game.run

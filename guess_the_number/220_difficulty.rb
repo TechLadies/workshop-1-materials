@@ -1,17 +1,18 @@
-class Game
-  attr_reader :number_of_tries, :player_name
+#
+# Once our game is parametrized, we can ask user to pick level of difficulty,
+# and depending on the number that user presses, we can start a game with
+# different maximum number.
+# I decided to give user 3 options, easy: 0-100, medium 0-200 and difficult
+# 0-300, but you can give more options and change maximum numbers to whatever
+# you want!
+#
 
-  def initialize(maximum_number=10)
+class Game
+  def initialize(maximum_number)
     @maximum_number = maximum_number
     @secret = rand(@maximum_number+1)
     @number_of_tries = 0
     @previous_tries = []
-    @player_name = ask_for_name
-  end
-
-  def ask_for_name
-    puts "What is your name"
-    return gets.chomp
   end
 
   def ask_for_number
@@ -29,39 +30,13 @@ class Game
       elsif @secret < guess
         puts "Your number was too big"
       else
-        puts "#{@player_name}, your number was right!"
+        puts "Your number was right!"
         puts "You tried #{@number_of_tries} times"
-        puts "Your tries were: #{@previous_tries.join(', ')}"
+        puts "Your tries were: #{@previous_tries.join(", ")}"
         break
       end
     end
   end
-end
-
-class History
-  def initialize
-    @storage = {}
-  end
-
-  def add_score(player, score)
-    @storage[player] = score
-  end
-
-  def print
-    puts "\n\nGAME LEADERS\n\n"
-    @history.each do |player, score|
-      puts "#{player} won in #{score} tries"
-    end
-    puts "\n\nEND\n\n"
-  end
-end
-
-@history = History.new
-
-def play_game(game)
-  game.run
-  @history.add_score(game.player_name, game.number_of_tries)
-  @history.print
 end
 
 loop do
@@ -74,11 +49,11 @@ loop do
   choice = gets.to_i
 
   if choice == 1
-    play_game(Game.new)
+    Game.new(100).run
   elsif choice == 2
-    play_game(Game.new(200))
+    Game.new(200).run
   elsif choice == 3
-    play_game(Game.new(300))
+    Game.new(300).run
   elsif choice == 0
     break
   end

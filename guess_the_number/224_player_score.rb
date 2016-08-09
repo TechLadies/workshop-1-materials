@@ -1,3 +1,20 @@
+#
+# This program will allow us to access the player's name and the number of tries
+# from outside of the class scope.
+# Remember, when we talked about scope of variables? If we call variable without
+# "@" character, it is available only within its block (e.g. a function body).
+# If we add "@" it is available in the broader scope (in our case it is
+# available in the whole class). Finally, if we want to make it available
+# outside of class, we use a function called "attr_reader".
+#
+# What we do here is basically saying "I want these variables to be available
+# outside of the class". After "attr_reader" we provide a list of variables we
+# want to share.
+#
+# Later we can try if it works by accessing them when user wins the game (check
+# line number 71!)
+#
+
 class Game
   attr_reader :number_of_tries, :player_name
 
@@ -38,8 +55,6 @@ class Game
   end
 end
 
-history = {}
-
 loop do
   puts "What do you want to do"
   puts "1 - play easy"
@@ -49,16 +64,13 @@ loop do
 
   choice = gets.to_i
 
-  if choice == 1
+  case choice
+  when 1
     game = Game.new
     game.run
-    history[game.player_name] = game.number_of_tries
-    puts history
-  elsif choice == 2
-    Game.new(200).run
-  elsif choice == 3
-    Game.new(300).run
-  elsif choice == 0
-    break
+    puts "player #{game.player_name} won in #{game.number_of_tries} tries"
+  when 2 then Game.new(200).run
+  when 3 then Game.new(300).run
+  else break
   end
 end

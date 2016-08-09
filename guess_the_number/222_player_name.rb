@@ -1,3 +1,13 @@
+#
+# The next feature we want to add to our game is to remember the last score for
+# each player. To do that, we first need to ask player for her name. This
+# requires a few changes:
+# - first we need to add a function called "ask_for_name" that will print the
+# question and later return whatever name player writes
+# - second, we need to assign that value (the name) to some shared variable
+# - lastly we can print the name pf the player when she wins the game.
+#
+
 class Game
   def initialize(maximum_number=100)
     @maximum_number = maximum_number

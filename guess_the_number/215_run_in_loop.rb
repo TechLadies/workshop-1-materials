@@ -1,3 +1,10 @@
+#
+# What we do now is to add a "loop" block just like we did in program #6.
+# We simply put running the game inside the loop so that it happens infinitely.
+# Please note that I replaced 2 lines with just 1 (inside the loop), it does not make any
+# difference in this case, it's just shorter.
+#
+
 class Game
   MAXIMUM_NUMBER = 100
 

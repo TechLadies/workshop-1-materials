@@ -1,3 +1,15 @@
+#
+# Up until now, the game history was working only on the easy level of the game.
+# In this program we make it work for all levels. What we do here is create
+# a new function, called "play_game". This function will run the game, add new
+# record to the history, and print the history. So instead of writing these
+# 3 lines of code for each level of difficulty, we just move it to a function,
+# and later call that function.
+#
+# The argument a function takes is a object of Game class. We take this game as
+# parameter, we play this game, then we save the result.
+#
+
 class Game
   attr_reader :number_of_tries, :player_name
 

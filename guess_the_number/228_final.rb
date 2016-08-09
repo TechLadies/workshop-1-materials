@@ -1,5 +1,17 @@
+#
+# This is a final version of the game. What I did here was just to organize the
+# code a bit more. I will not write the details here, I leave it for you as an
+# exercise to try to understand what changed in this program. Pay attention to
+# the History class, try to understand what it does.
+#
+# If you reached this program, you must have been very persistent.
+# Congratulations, and thank you for reading this material! :)
+#
+
 class Game
-  def initialize(maximum_number=100)
+  attr_reader :number_of_tries, :player_name
+
+  def initialize(maximum_number=10)
     @maximum_number = maximum_number
     @secret = rand(@maximum_number+1)
     @number_of_tries = 0
@@ -36,6 +48,32 @@ class Game
   end
 end
 
+class History
+  def initialize
+    @storage = {}
+  end
+
+  def add_score(player, score)
+    @storage[player] = score
+  end
+
+  def print
+    puts "\n\nGAME LEADERS\n\n"
+    @storage.each do |player, score|
+      puts "#{player} won in #{score} tries"
+    end
+    puts "\n\nEND\n\n"
+  end
+end
+
+@history = History.new
+
+def play_game(game)
+  game.run
+  @history.add_score(game.player_name, game.number_of_tries)
+  @history.print
+end
+
 loop do
   puts "What do you want to do"
   puts "1 - play easy"
@@ -46,13 +84,12 @@ loop do
   choice = gets.to_i
 
   if choice == 1
-    Game.new.run
+    play_game(Game.new)
   elsif choice == 2
-    Game.new(200).run
+    play_game(Game.new(200))
   elsif choice == 3
-    Game.new(300).run
+    play_game(Game.new(300))
   elsif choice == 0
     break
   end
 end
-

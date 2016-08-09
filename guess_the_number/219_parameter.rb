@@ -1,3 +1,18 @@
+#
+# Our next feature will be to add different difficulty levels to our game.
+# The more difficult the leve, the bigger maximum allowed number is.
+#
+# In order to change the maximum number, we cannot use the constant anymore
+# (remember, constant cannot change). We will change it to a variable instead.
+# 
+# First, we add a parameter called "maximum_number" to our "initialize"
+# function. Then we assign a shared variable "@maximum_number", and then replace
+# all occurences of the constant with shared variable.
+#
+# In the end, when we create new game, we need to provide it the maximum number
+# as a parameter. We start with number 100.
+#
+
 class Game
   def initialize(maximum_number)
     @maximum_number = maximum_number
@@ -39,12 +54,7 @@ loop do
 
   if choice == 1
     Game.new(100).run
-  elsif choice == 2
-    Game.new(200).run
-  elsif choice == 3
-    Game.new(300).run
   elsif choice == 0
     break
   end
 end
-

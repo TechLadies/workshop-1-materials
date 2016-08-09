@@ -1,3 +1,13 @@
+#
+# When we are presenting list of tries, it is displayed in [1, 2, 3] format.
+# This does not look naturally, so we'll fix that.
+# In order to change it we neet to convert our array to string (text) type.
+# We do it by calling a function called "join" on our array. This function will
+# connect together all elements with whatever we tell it to. In our case we want
+# to connect the numbers with a comma and a space (", "). After that small
+# change our list of numbers looks like this: 1, 2, 3, which is more natural.
+#
+
 class Game
   MAXIMUM_NUMBER = 100
 

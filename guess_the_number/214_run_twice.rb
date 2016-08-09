@@ -1,3 +1,10 @@
+#
+# In this version the only thing we do is to create a 2nd game and run it once
+# the first one is finished. This is to show that to run it twice we need to
+# duplicate the code. In the next program we will remove that duplication and
+# allow the game to be played over and over.
+#
+
 class Game
   MAXIMUM_NUMBER = 100
 
@@ -28,5 +35,8 @@ class Game
   end
 end
 
-Game.new.run
-Game.new.run
+game = Game.new
+game.run
+
+game2 = Game.new
+game2.run

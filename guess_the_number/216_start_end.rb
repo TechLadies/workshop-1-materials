@@ -1,3 +1,16 @@
+#
+# The previous version of the game runs infinitely - never ends until
+# user stops the game by pressing CTRL+C.
+# This update changes it - before every game we print the menu for the user and
+# ask her if she wants to play or exit the game.
+# We use techniques we've already learned:
+# - we use "gets" function to get the input from player and then we convert that
+# input to a number
+# - we use "if" to differentiate program's behaviour depending on user's choice
+# - we use "break" word to get out of the loop and finish program if user
+# presses 0
+#
+
 class Game
   MAXIMUM_NUMBER = 100
 

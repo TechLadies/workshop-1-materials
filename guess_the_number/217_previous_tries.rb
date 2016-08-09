@@ -1,3 +1,19 @@
+#
+# This update adds another feature to our program - we now remember all user's
+# guesses and print them when user wins the game.
+# To store them we use  a new data type that we haven't learned before. It is
+# called an array an you can thing of it as a list.
+# We crate an empty array by assigning [] value to a variable. Please notice
+# that these are to separate characters: [ and ] (depending on your font it
+# might look like it's just a square)
+#
+# Whenever user picks a number, we add this number to a list of previous tries.
+# We use the "<<" function. It means that we are adding an element to the array.
+#
+# Later, when user wins the game, we show both number of tries and the list of
+# all tries.
+#
+
 class Game
   MAXIMUM_NUMBER = 100
 
